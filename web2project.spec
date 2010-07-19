@@ -1,9 +1,9 @@
 %define _requires_exceptions pear(/usr/share/php/adodb/adodb.inc.php)
 
-Summary:    Web Based Project Management Tool
+Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    %mkrel 1
+Release:    %mkrel 2
 License:    BSD
 Group:      System/Servers
 URL:        http://www.dotproject.net
@@ -31,12 +31,10 @@ BuildArch:  noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
-DotProject is a Web-based project management framework that includes modules
-for companies, projects, tasks (with Gantt charts), forums, files, a
-calendar, contacts, tickets/helpdesk, multi-language support, user/module
-permissions, and themes. It is translated into 17 languages and has a modular
-design that allows extra modules (such as time sheets and inventory) to be
-added in easily.
+web2Project is an Free Open Source business oriented Project Management System
+(PMS) built for the future. Following the concept of a Rich Internet
+Application (RIA) we will be providing an interactive and effective way of
+managing projects.
 
 %prep
 %setup -q
