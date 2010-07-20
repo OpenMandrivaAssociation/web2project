@@ -1,9 +1,9 @@
-%define _requires_exceptions pear(/usr/share/php/adodb/adodb.inc.php)
+%define _requires_exceptions pear(/usr/share/php/adodb/.*.inc.php)
 
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    %mkrel 2
+Release:    %mkrel 3
 License:    BSD
 Group:      System/Servers
 URL:        http://www.dotproject.net
