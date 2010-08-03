@@ -3,7 +3,7 @@
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    %mkrel 3
+Release:    %mkrel 4
 License:    BSD
 Group:      System/Servers
 URL:        http://www.dotproject.net
@@ -11,6 +11,8 @@ Source0:    http://prdownloads.sourceforge.net/web2project/%{name}-%{version}.ta
 Patch0:     web2project-2.0-external-adodb.patch
 Patch1:     web2project-1.3-external-libs.patch
 Patch2:     web2project-2.0-fix-bbparser-path.patch
+#http://github.com/trevormorse/web2project/commit/ab14f7f1ccd39b0f8fdda4996a7719d16c6e6d84
+Patch3:     web2project-2.0-timezone-fix.patch
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Requires:   apache-mod_php
@@ -48,6 +50,7 @@ rm -rf lib/PEAR
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 
