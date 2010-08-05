@@ -3,10 +3,10 @@
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    %mkrel 4
+Release:    %mkrel 5
 License:    BSD
 Group:      System/Servers
-URL:        http://www.dotproject.net
+URL:        http://web2project.net/
 Source0:    http://prdownloads.sourceforge.net/web2project/%{name}-%{version}.tar.gz
 Patch0:     web2project-2.0-external-adodb.patch
 Patch1:     web2project-1.3-external-libs.patch
