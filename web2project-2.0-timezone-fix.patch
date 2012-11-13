@@ -1,0 +1,22 @@
+diff -Naur -x '*~' web2project-2.0/modules/system/index.php web2project-2.0-timezone-fix//modules/system/index.php
+--- web2project-2.0/modules/system/index.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-timezone-fix//modules/system/index.php	2010-08-03 12:39:54.000000000 +0200
+@@ -27,7 +27,10 @@
+     <td align="left">
+       <?php
+         $tzName = w2PgetConfig('system_timezone');
+-        if (ini_get('date.timezone') || strlen($tzName) > 0) {
++        if(strlen($tzName) == 0) {
++	    $tzName = ini_get('date.timezone');
++	}
++	if (strlen($tzName) > 0) {
+             $time = new DateTimeZone($tzName);
+             $x = new DateTime();
+             $offset = $time->getOffset($x);
+@@ -126,4 +129,4 @@
+       <a href="?m=system&a=phpinfo&suppressHeaders=1" target="_blank"><?php echo $AppUI->_('PHP Info'); ?></a>
+     </td>
+   </tr>
+-</table>
+\ Pas de fin de ligne à la fin du fichier.
++</table>

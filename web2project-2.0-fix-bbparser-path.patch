@@ -1,0 +1,19 @@
+diff -Naur -x '*~' web2project-2.0/modules/forums/forums.class.php web2project-2.0-fix-bbparser-path//modules/forums/forums.class.php
+--- web2project-2.0/modules/forums/forums.class.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-fix-bbparser-path//modules/forums/forums.class.php	2010-07-19 11:44:53.000000000 +0200
+@@ -3,7 +3,7 @@
+ 	die('You should not access this file directly.');
+ }
+ 
+-require_once ($AppUI->getLibraryClass('PEAR/BBCodeParser'));
++require_once ($AppUI->getLibraryClass('PEAR/HTML/BBCodeParser'));
+ $bbparser = new HTML_BBCodeParser();
+ 
+ $filters = array('- Filters -');
+@@ -189,4 +189,4 @@
+ 		return parent::getAllowedRecords($uid, $fields, $orderby, $index, $extra);
+ 
+ 	}
+-}
+\ Pas de fin de ligne à la fin du fichier.
++}

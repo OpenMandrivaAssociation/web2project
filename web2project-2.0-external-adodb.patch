@@ -1,0 +1,109 @@
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/base.php web2project-2.0-external-adodb//base.php
+--- web2project-2.0/base.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//base.php	2010-07-19 11:03:06.000000000 +0200
+@@ -61,7 +61,7 @@
+ 
+ // Set the ADODB directory
+ if (!defined('ADODB_DIR')) {
+-	define('ADODB_DIR', W2P_BASE_DIR . '/lib/adodb');
++	define('ADODB_DIR', '/usr/share/php/adodb');
+ }
+ 
+ /*
+@@ -79,4 +79,4 @@
+ // Start up mb_string UTF-8 if available
+ if (function_exists('mb_internal_encoding')) {
+ 	mb_internal_encoding('UTF-8');
+-}
+\ Pas de fin de ligne à la fin du fichier.
++}
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/classes/w2p/Core/UpgradeManager.class.php web2project-2.0-external-adodb//classes/w2p/Core/UpgradeManager.class.php
+--- web2project-2.0/classes/w2p/Core/UpgradeManager.class.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//classes/w2p/Core/UpgradeManager.class.php	2010-07-19 11:28:31.000000000 +0200
+@@ -6,7 +6,7 @@
+  *	@version $Revision$
+  */
+ 
+-require_once W2P_BASE_DIR . '/lib/adodb/adodb.inc.php';
++require_once '/usr/share/php/adodb/adodb.inc.php';
+ 
+ class w2p_Core_UpgradeManager {
+     private $action = '';
+@@ -352,4 +352,4 @@
+         }
+         return $recordsUpdated;
+     }
+-}
+\ Pas de fin de ligne à la fin du fichier.
++}
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/classes/w2p/Database/Query.class.php web2project-2.0-external-adodb//classes/w2p/Database/Query.class.php
+--- web2project-2.0/classes/w2p/Database/Query.class.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//classes/w2p/Database/Query.class.php	2010-07-19 11:29:02.000000000 +0200
+@@ -16,7 +16,7 @@
+  * a select statement by adding components one at a time.
+  */
+ 
+-require_once W2P_BASE_DIR . '/lib/adodb/adodb.inc.php';
++require_once '/usr/share/php/adodb/adodb.inc.php';
+ 
+ define('QUERY_STYLE_NUM', ADODB_FETCH_NUM);
+ 
+@@ -1328,7 +1328,7 @@
+ 	public function execXML($xml, $mode = 'REPLACE') {
+ 		global $AppUI;
+ 
+-		include_once W2P_BASE_DIR . '/lib/adodb/adodb-xmlschema.inc.php';
++		include_once '/usr/share/php/adodb/adodb-xmlschema.inc.php';
+ 		$schema = new adoSchema($this->_db);
+ 		$schema->setUpgradeMode($mode);
+ 		if (isset($this->_table_prefix) && $this->_table_prefix) {
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/includes/db_adodb.php web2project-2.0-external-adodb//includes/db_adodb.php
+--- web2project-2.0/includes/db_adodb.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//includes/db_adodb.php	2010-07-19 11:01:46.000000000 +0200
+@@ -13,7 +13,7 @@
+ 	die('You should not access this file directly.');
+ }
+ 
+-require_once (W2P_BASE_DIR . '/lib/adodb/adodb.inc.php');
++require_once ('/usr/share/php/adodb/adodb.inc.php');
+ 
+ $db = NewADOConnection(w2PgetConfig('dbtype'));
+ 
+@@ -211,4 +211,4 @@
+ 				$w2Pconfig[$c['config_name']] = $c['config_value'];
+ 			}
+ 	}
+-}
+\ Pas de fin de ligne à la fin du fichier.
++}
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/install/install/perform.php web2project-2.0-external-adodb//install/install/perform.php
+--- web2project-2.0/install/install/perform.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//install/install/perform.php	2010-07-19 11:01:46.000000000 +0200
+@@ -3,7 +3,7 @@
+ 		die('You should not access this file directly.');
+ 	}
+ 
+-	require_once W2P_BASE_DIR . '/lib/adodb/adodb.inc.php';
++	require_once '/usr/share/php/adodb/adodb.inc.php';
+ 	require_once W2P_BASE_DIR . '/includes/version.php';
+ 
+ 	$dbtype = trim( w2PgetCleanParam( $_POST, 'dbtype', 'mysql' ) );
+@@ -138,4 +138,4 @@
+ 			<p>The Administrator login has been set to <b>admin</b> with the password <?php echo ($adminpass == 'passwd') ? 'of <b>passwd</b>' : 'you set' ?></b>. It is a good idea to change this password when you first log in</p>
+ 		</td>
+ 	</tr>
+-</table>
+\ Pas de fin de ligne à la fin du fichier.
++</table>
+diff -Naur -x '*~' -x '*.rej' -x '*.orig' web2project-2.0/lib/phpgacl/gacl.class.php web2project-2.0-external-adodb//lib/phpgacl/gacl.class.php
+--- web2project-2.0/lib/phpgacl/gacl.class.php	1970-01-01 10:13:08.000000000 +0100
++++ web2project-2.0-external-adodb//lib/phpgacl/gacl.class.php	2010-07-19 11:01:49.000000000 +0200
+@@ -35,7 +35,7 @@
+  * Path to ADODB.
+  */
+ if ( !defined('ADODB_DIR') ) {
+-	define('ADODB_DIR', dirname(__FILE__).'/../adodb');
++	define('ADODB_DIR', '/usr/share/php/adodb');
+ }
+ 
+ /**
