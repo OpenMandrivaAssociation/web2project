@@ -1,9 +1,7 @@
-%define _requires_exceptions pear(/usr/share/php/adodb/.*.inc.php)
-
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    %mkrel 5
+Release:    6
 License:    BSD
 Group:      System/Servers
 URL:        http://web2project.net/
@@ -18,7 +16,7 @@ Requires(preun): rpm-helper
 Requires:   apache-mod_php
 Requires:   php-mysql
 Requires:   php-gd
-Requires:   php-sqlite
+Requires:   php-sqlite3
 Requires:   php-ldap
 Requires:   php-adodb
 Requires:   php-jpgraph
@@ -30,7 +28,6 @@ Requires:   php-pear-Contact_Vcard_Build
 Requires:   php-pear-HTML_BBCodeParser
 Requires:   nusoap
 BuildArch:  noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 web2Project is an Free Open Source business oriented Project Management System
@@ -55,8 +52,6 @@ rm -rf lib/PEAR
 %build
 
 %install
-rm -rf %{buildroot}
-
 install -d -m 755 %{buildroot}%{_datadir}/%{name}
 install -m 644 *.php %{buildroot}%{_datadir}/%{name}
 for dir in classes includes install js lib locales modules style; do
@@ -126,13 +121,10 @@ EOF
 %postun
 %_postun_webapp
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog COPYING LICENSE README
 %config(noreplace) %{_sysconfdir}/httpd/conf/webapps.d/%{name}.conf
 %attr(-,apache,apache) %config(noreplace) %{_sysconfdir}/%{name}/config.php
 %{_datadir}/%{name}
 %attr(-,apache,apache) %{_localstatedir}/lib/%{name}
+
