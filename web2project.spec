@@ -1,7 +1,7 @@
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    6
+Release:    7
 License:    BSD
 Group:      System/Servers
 URL:        http://web2project.net/
@@ -92,25 +92,20 @@ Alias /%{name} %{_datadir}/%{name}
 
 
 <Directory %{_datadir}/%{name}/includes>
-    Order deny,allow
-    Deny from all
+    Require all denied
 </Directory>
 
 <Directory %{_datadir}/%{name}/includes>
-    Order deny,allow
-    Deny from all
-    Allow from 127.0.0.1
+    Require host localhost.localdomain
     ErrorDocument 403 "Access denied per %{_webappconfdir}/%{name}.conf"
 </Directory>
 
 <Directory %{_localstatedir}/lib/%{name}/files>
-    Order deny,allow
-    Deny from all
+    Require all denied
 </Directory>
 
 <Directory %{_localstatedir}/lib/%{name}/files/temp>
-    Order allow,deny
-    Allow from all
+    Require all granted
 </Directory>
 EOF
 
