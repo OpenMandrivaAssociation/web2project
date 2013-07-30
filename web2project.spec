@@ -1,7 +1,7 @@
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    7
+Release:    8
 License:    BSD
 Group:      System/Servers
 URL:        http://web2project.net/
@@ -96,7 +96,7 @@ Alias /%{name} %{_datadir}/%{name}
 </Directory>
 
 <Directory %{_datadir}/%{name}/includes>
-    Require host localhost.localdomain
+    Require local granted
     ErrorDocument 403 "Access denied per %{_webappconfdir}/%{name}.conf"
 </Directory>
 
