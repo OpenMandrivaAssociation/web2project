@@ -1,7 +1,7 @@
 Summary:    Real Project Management for Real Businesses
 Name:       web2project
 Version:    2.0
-Release:    8
+Release:    9
 License:    BSD
 Group:      System/Servers
 URL:        http://web2project.net/
