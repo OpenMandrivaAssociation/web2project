@@ -4,7 +4,7 @@ Version:    2.0
 Release:    9
 License:    BSD
 Group:      System/Servers
-URL:        http://web2project.net/
+URL:        https://web2project.net/
 Source0:    http://prdownloads.sourceforge.net/web2project/%{name}-%{version}.tar.gz
 Patch0:     web2project-2.0-external-adodb.patch
 Patch1:     web2project-1.3-external-libs.patch
